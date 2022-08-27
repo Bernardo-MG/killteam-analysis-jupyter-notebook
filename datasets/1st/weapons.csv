@@ -1,0 +1,19 @@
+name,attacks,strength,ap,damage
+Bolt pistol,1,4,0,1
+Bolt rifle,1,4,-1,1
+Boltgun,1,4,0,1
+Lasgun,1,3,0,1
+Laspistol,1,3,0,1
+Meltagun,1,8,-4,d6
+Plasma gun (standard),1,7,-3,1
+Plasma gun (supercharge),1,8,-3,2
+Plasma pistol (standard),1,7,-3,1
+Plasma pistol (supercharge),1,8,-3,2
+Sniper rifle,1,4,0,1
+Barbed strangler,d6,5,-1,1
+Deathspitter,3,5,-1,1
+Devourer,3,4,0,1
+Flesh hooks,2,user,0,1
+Fleshborer,1,4,0,1
+Spinefists,user,3,0,1
+Venom cannon,d3,8,-2,d3
