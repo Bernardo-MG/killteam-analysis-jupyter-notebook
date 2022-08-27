@@ -1,6 +1,20 @@
 from scripts.probability import at_least_one
 
 
+def chance_to_pass(roll):
+    return (6 - (roll - 1)) / 6
+
+
+def to_percent(chance):
+    percent = chance * 100
+    if percent > 100:
+        percent = 100
+    elif percent < 0:
+        percent = 0
+
+    return percent
+
+
 def chance_to_hit(ballistics):
     """
     Gets the chance to hit.
@@ -10,9 +24,8 @@ def chance_to_hit(ballistics):
         range = 0
 
     # chance to hit
-    chance = (range / 6) * 100
-    if chance > 100:
-        chance = 100
+    chance = (range / 6)
+    chance = to_percent(chance)
 
     return str(chance)
 
@@ -40,9 +53,8 @@ def chance_to_wound(strength, toughness):
         roll = 7
 
     # Chance to wound
-    chance = ((6 - (roll - 1)) / 6) * 100
-    if chance > 100:
-        chance = 100
+    chance = chance_to_pass(roll)
+    chance = to_percent(chance)
 
     return str(chance)
 
@@ -51,12 +63,15 @@ def chance_to_fail_armour(ap, armour):
     """
     Gets the chance to pass the target armour.
     """
+
+    # Can't be equal, so we increase the roll in one
     roll = armour - ap
 
     # Chance to pass armour
-    chance = ((6 - (roll - 1)) / 6)
+    chance = chance_to_pass(roll)
     # Chance to fail armour
-    chance = (1 - chance) * 100
+    chance = (1 - chance)
+    chance = to_percent(chance)
 
     return str(chance)
 
